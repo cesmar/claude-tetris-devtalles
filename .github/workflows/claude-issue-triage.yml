@@ -52,6 +52,10 @@ jobs:
                (`gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments`):
                si existe, actualízalo (`gh api -X PATCH repos/${{ github.repository }}/issues/comments/<id> -f body=...`); si no, créalo con `gh issue comment`.
 
+            El comentario DEBE estar escrito en Markdown compatible con GitHub (GitHub Flavored Markdown), de modo que se renderice correctamente en el issue:
+            usa encabezados `##`, listas con `-`, **negritas**, `código en línea` y bloques de código con triple acento grave (indicando el lenguaje, p. ej. ```js).
+            No uses HTML salvo el comentario `<!-- claude-triage -->`, y deja una línea en blanco entre bloques para que el formato se interprete bien.
+
             Formato del comentario (markdown):
             <!-- claude-triage -->
             ## 🤖 Diagnóstico automático
